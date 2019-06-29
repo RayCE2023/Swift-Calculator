@@ -27,6 +27,7 @@ class ViewController: UIViewController {
             
         }
         
+        //add decmial 
         else if sender.tag == 19 {
             if !(label.text?.contains("."))!{
                 if label.text == ""{
@@ -38,12 +39,14 @@ class ViewController: UIViewController {
             }
         }
         else{
+            //display number
             label.text = label.text! + String(sender.tag - 1)
             currNum = Double(label.text!)!;
         }
     }
     
     @IBAction func Operators(_ sender: UIButton) {
+        //if an operation key is pressed
         if label.text != "" && sender.tag != 11 && sender.tag != 12 && sender.tag != 13 && sender.tag != 18 && sender.tag != 19{
             
             prevNum = Double(label.text!)!;
@@ -72,18 +75,19 @@ class ViewController: UIViewController {
                  currNum = prevNum + currNum
             }
         }
-            
+         //negation  
         else if sender.tag == 12{
             currNum = (currNum *  -1);
             label.text = String(currNum);
             
         }
+        //percent to number
         else if sender.tag == 13 {
             currNum = (currNum / 100);
             label.text = String(currNum);
         }
          
-            
+        //reset   
         else if sender.tag == 11{
             label.text = "";
             prevNum = 0;
